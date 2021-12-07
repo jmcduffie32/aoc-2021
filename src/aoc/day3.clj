@@ -48,8 +48,7 @@
 (defn least-common [codes]
   (->> codes
        code-frequencies
-       print-and-pass
-       (map (partial apply min-key second))
+       (map (comp (partial apply min-key second) reverse))
        (mapcat first)
        str/join))
 
